@@ -11,11 +11,11 @@ const App: React.FC = () => {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", height: '100vh' }}>
       <Sidebar isOpen={isSidebarOpen} />
       <Box sx={{ flexGrow: 1 }}>
         <Header toggleSidebar={toggleSidebar} />
-        <Box component="main" p={2}>
+        <Box component="main" p={6}>
           <h1>Welcome to the App</h1>
           <p>This is the main content area.</p>
         </Box>

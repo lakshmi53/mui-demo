@@ -14,7 +14,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" noWrap component="div">
-          My Application
+          Demo Application
         </Typography>
       </Toolbar>
     </AppBar>
