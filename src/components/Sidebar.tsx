@@ -1,21 +1,9 @@
 import React from "react";
-import {
-  Drawer,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Divider,
-  IconButton,
-  Box,
-} from "@mui/material";
+import { Drawer, List, ListItem, ListItemIcon, ListItemText, Box } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-
 
 interface SidebarProps {
   isOpen: boolean;
@@ -39,31 +27,32 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
         },
       }}
     >
-      <Box sx={{ display: "flex", justifyContent: "flex-end", padding: 1 }}>
-        {/* <IconButton>
-          {isOpen ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-        </IconButton>       */}
+      <Box sx={{ mt: 8 }}>
         <List>
-          <ListItem component={NavLink} to="/">
-            <ListItemIcon>
-              <HomeIcon />
-            </ListItemIcon>
-            {isOpen && <ListItemText primary="Home" />}
-          </ListItem>
-          <ListItem component={NavLink} to="/about">
-            <ListItemIcon>
-              <InfoIcon />
-            </ListItemIcon>
-            {isOpen && <ListItemText primary="About" />}
-          </ListItem>
-          <ListItem component={NavLink} to="/contact">
-            <ListItemIcon>
-              <ContactMailIcon />
-            </ListItemIcon>
-            {isOpen && <ListItemText primary="Contact" />}
-          </ListItem>
+          {[
+            { text: "Home", icon: <HomeIcon />, to: "/" },
+            { text: "About", icon: <InfoIcon />, to: "/about" },
+            { text: "Contact", icon: <ContactMailIcon />, to: "/contact" },
+          ].map((item, index) => (
+            <ListItem
+              key={index}
+              component={NavLink}
+              to={item.to}
+              sx={{
+                "&.active": {
+                  backgroundColor: "primary.main",
+                  color: "white",
+                  "& .MuiListItemIcon-root": {
+                    color: "white",
+                  },
+                },
+              }}
+            >
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              {isOpen && <ListItemText primary={item.text} />}
+            </ListItem>
+          ))}
         </List>
-        <Divider />
       </Box>
     </Drawer>
   );
