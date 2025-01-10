@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, Toolbar, IconButton, Typography } from "@mui/material";
+import { AppBar, Toolbar, IconButton, Typography, Box } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
 interface HeaderProps {
@@ -18,7 +18,13 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" noWrap component="div">
+        <Box
+          component="img"
+          src="https://via.placeholder.com/40"
+          alt="Logo"
+          sx={{ height: 40, mr: 2 }}
+        />
+        <Typography variant="h6" noWrap>
           My Application
         </Typography>
       </Toolbar>
