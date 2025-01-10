@@ -10,11 +10,16 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
   return (
     <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
       <Toolbar>
-        <IconButton edge="start" color="inherit" onClick={toggleSidebar}>
+        <IconButton
+          edge="start"
+          color="inherit"
+          aria-label="menu"
+          onClick={toggleSidebar}
+        >
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" noWrap component="div">
-          Demo Application
+          My Application
         </Typography>
       </Toolbar>
     </AppBar>
