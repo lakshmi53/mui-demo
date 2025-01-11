@@ -34,11 +34,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
             { text: "About", icon: <InfoIcon />, to: "/about" },
             { text: "Contact", icon: <ContactMailIcon />, to: "/contact" },
           ].map((item, index) => (
-            <ListItem
+            <ListItem              
               key={index}
               component={NavLink}
               to={item.to}
-              sx={{
+              sx={({ isActive }: any) => ({
                 "&.active": {
                   backgroundColor: "primary.main",
                   color: "white",
@@ -46,7 +46,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
                     color: "white",
                   },
                 },
-              }}
+              })}
             >
               <ListItemIcon>{item.icon}</ListItemIcon>
               {isOpen && <ListItemText primary={item.text} />}

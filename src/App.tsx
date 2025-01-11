@@ -10,10 +10,10 @@ import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 
 const App: React.FC = () => {
-  const [isSidebarOpen, setSidebarOpen] = useState(true);
-  const [darkMode, setDarkMode] = useState(false);
+  const [isSidebarOpen, setSidebarOpen] = useState(true); // Sidebar visibility state
+  const [darkMode, setDarkMode] = useState(false); // Dark mode state
 
-  // Create the theme
+  // Create the Material-UI theme
   const theme = createTheme({
     palette: {
       mode: darkMode ? "dark" : "light",
@@ -22,9 +22,10 @@ const App: React.FC = () => {
     },
   });
 
-  // Check for small screens
+  // Media query to check for small screens
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
+  // Automatically collapse the sidebar on smaller screens
   React.useEffect(() => {
     setSidebarOpen(!isSmallScreen);
   }, [isSmallScreen]);
@@ -34,11 +35,14 @@ const App: React.FC = () => {
       <CssBaseline />
       <Router>
         <Box sx={{ display: "flex", height: "100vh" }}>
+          {/* Sidebar */}
           <Sidebar isOpen={isSidebarOpen} />
+          
+          {/* Main Content */}
           <Box sx={{ flexGrow: 1 }}>
             <Header
-              toggleSidebar={() => setSidebarOpen(!isSidebarOpen)}
-              setDarkMode={setDarkMode}
+              toggleSidebar={() => setSidebarOpen(!isSidebarOpen)} // Sidebar toggle
+              setDarkMode={setDarkMode} // Dark mode toggle
               darkMode={darkMode}
             />
             <Box component="main" sx={{ p: 3, mt: 8 }}>
