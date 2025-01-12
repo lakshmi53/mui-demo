@@ -17,9 +17,30 @@ const App: React.FC = () => {
   const theme = createTheme({
     palette: {
       mode: darkMode ? "dark" : "light",
-      primary: { main: "#4A90E2" },
-      secondary: { main: "#FF5722" },
+      primary: { main: "#003366" },
+      secondary: { main: "#0088CC" },
+      // background: {
+      //   paper: '#ffffff',
+      // },
     },
+  });
+
+  const CHTheme = createTheme({
+    typography: {
+      fontFamily: 'RingsideRegular, Arial, sans-serif',
+    },
+    palette: {
+      primary: {
+        main: '#003366', // Dark blue
+      },
+      secondary: {
+        main: '#0088CC', // Lighter blue on hover
+      },
+      background: {
+        paper: '#ffffff',
+      },
+    }
+    
   });
 
   // Media query to check for small screens
